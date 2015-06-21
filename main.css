@@ -1,0 +1,48 @@
+html { 
+    font-weight: 300;
+    font-family: "futura-pt";
+    letter-spacing: 4px;
+}
+
+none {
+   font-family: "futura-pt", Futura, “Trebuchet MS”, Arial, sans-serif;
+}
+
+h1 {
+    padding-top: 0.5em; 
+    text-transform: uppercase;
+    text-align: center;
+    font-family: "futura-pt",sans-serif;
+    font-style: normal;
+    font-weight: 300;
+}
+
+h2 {
+    text-align: center;
+    font-weight: 300;
+}
+
+p {
+    letter-spacing: 1px;
+    padding-bottom: 2em; 
+}
+
+.doctors {
+    padding-top: 4em;
+}
+
+.table {
+    display: table; 
+    border-collapse:collapse; 
+}
+
+.table-row {
+    display:table-row; 
+}
+
+.table-cell {
+    display:table-cell; 
+    vertical-align: top;
+    padding-left: 2em;
+    padding-right: 2em;
+}
