@@ -29,12 +29,17 @@ h4 {
 
 p {
     font-family: "futura-pt",sans-serif;
-    font-size:14px;
+    font-weight: 300;
+    font-size:120%;
+    letter-spacing: 1px;
 }
 
 
 li {
     font-family: "futura-pt",sans-serif;
+    font-weight: 300;
+    font-size:120%;
+    letter-spacing: 1px;
 }
 
 .doctors {
