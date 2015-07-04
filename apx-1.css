@@ -30,9 +30,13 @@ h4 {
 p {
     font-family: "futura-pt",sans-serif;
     letter-spacing: 1px;
-    padding-bottom: 2em; 
 }
 
+
+li {
+    font-family: "futura-pt",sans-serif;
+    letter-spacing: 1px;
+}
 
 .doctors {
     padding-top: 4em;
