@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Impressum"
+  description="Impressum der Arztpraxis Stadelhofen, Goethestrasse 22, 8001 Zürich."
+  currentPage="impressum"
+>
+  <Navigation />
+
+  <main class="container">
+    <article class="legal">
+      <header class="text-center">
+        <h1>Impressum</h1>
+      </header>
+
+      <section>
+        <h3>Verantwortliche Stelle</h3>
+        <p>
+          Arztpraxis Stadelhofen<br />
+          Goethestrasse 22<br />
+          8001 Zürich
+        </p>
+        <p>
+          Telefon: <a class="phone" href="tel:+41442525545">044 252 55 45</a>
+        </p>
+      </section>
+
+      <section>
+        <h3>Inhaberinnen</h3>
+        <p>
+          Dr. med. Vera Stucki-Häusler<br />
+          Fachärztin Allgemeine Innere Medizin FMH
+        </p>
+        <p>
+          Valeria Stadelmann<br />
+          Fachärztin Allgemeine Innere Medizin FMH
+        </p>
+        <p>
+          Dr. med. Miriam Straub<br />
+          Fachärztin Psychiatrie und Psychotherapie FMH
+        </p>
+      </section>
+
+      <section>
+        <h3>Berufsbezeichnung und berufsrechtliche Regelungen</h3>
+        <p>
+          Berufsbezeichnung: Ärztin (verliehen in der Schweiz). Berufsrechtliche
+          Regelungen: Bundesgesetz über die universitären Medizinalberufe
+          (MedBG, SR 811.11).
+        </p>
+        <p>
+          Aufsichtsbehörde: Gesundheitsdirektion des Kantons Zürich,
+          Stampfenbachstrasse 30, 8090 Zürich.
+        </p>
+      </section>
+
+      <section>
+        <h3>Haftungsausschluss</h3>
+        <p>
+          Die Inhalte dieser Website wurden mit grösstmöglicher Sorgfalt
+          erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der
+          Inhalte können wir jedoch keine Gewähr übernehmen. Für die Inhalte
+          verlinkter externer Websites sind ausschliesslich deren Betreiber
+          verantwortlich.
+        </p>
+      </section>
+    </article>
+  </main>
+
+  <Footer />
+</Layout>

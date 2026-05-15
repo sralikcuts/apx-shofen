@@ -1,6 +1,7 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
+import Footer from "../components/Footer.astro";
 
 type Image = { full: string; thumb: string; title: string };
 
@@ -101,6 +102,7 @@ const columns: Image[][] = [
       }
     </div>
   </main>
+  <Footer />
 </Layout>
 
 <style>
