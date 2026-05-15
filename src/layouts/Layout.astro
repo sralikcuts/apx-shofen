@@ -7,11 +7,58 @@ interface Props {
 
 const {
   title = "Arztpraxis Stadelhofen | Arzt - Hausarzt - Hausarztpraxis - Innere Medizin und Allgemeinmedizin in Zürich Kreis 1 beim Bahnhof Stadelhofen",
-  description = "Arztpraxis Stadelhofen Zürich",
+  description = "Hausarztpraxis von Dr. med. Vera Stucki, Valeria Stadelmann und Dr. med. Miriam Straub in Zürich Kreis 1, beim Bahnhof Stadelhofen.",
   currentPage,
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+// Canonical: /index.html als / führen, damit / und /index.html nicht als
+// Duplikate behandelt werden.
+const canonicalPath = Astro.url.pathname.replace(/\/index\.html$/, "/");
+const canonicalURL = new URL(canonicalPath, Astro.site);
+const ogImageURL = new URL("/baum.png", Astro.site).href;
+
+// JSON-LD MedicalBusiness wird nur auf der Startseite ausgegeben — Google
+// empfiehlt Strukturierte Daten am authoritativsten Ort. Auf den anderen
+// Seiten würde die Wiederholung keinen zusätzlichen Nutzen bringen.
+const isHome = currentPage === "home";
+const structuredData = {
+  "@context": "https://schema.org",
+  "@type": "MedicalBusiness",
+  name: "Arztpraxis Stadelhofen",
+  url: "https://arztpraxis-stadelhofen.ch",
+  image: "https://arztpraxis-stadelhofen.ch/baum.png",
+  telephone: "+41 44 252 55 45",
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: "Goethestrasse 22",
+    postalCode: "8001",
+    addressLocality: "Zürich",
+    addressCountry: "CH",
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: 47.3661,
+    longitude: 8.5479,
+  },
+  medicalSpecialty: ["FamilyPractice", "InternalMedicine", "Psychiatric"],
+  employee: [
+    {
+      "@type": "Physician",
+      name: "Dr. med. Vera Stucki-Häusler",
+      jobTitle: "Fachärztin Allgemeine Innere Medizin FMH",
+    },
+    {
+      "@type": "Physician",
+      name: "Valeria Stadelmann",
+      jobTitle: "Fachärztin Allgemeine Innere Medizin FMH",
+    },
+    {
+      "@type": "Physician",
+      name: "Dr. med. Miriam Straub",
+      jobTitle: "Fachärztin Psychiatrie und Psychotherapie FMH",
+    },
+  ],
+};
 ---
 
 <!doctype html>
@@ -46,6 +93,18 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     <meta property="og:description" content={description} />
     <meta property="og:type" content="website" />
     <meta property="og:url" content={canonicalURL} />
+    <meta property="og:image" content={ogImageURL} />
+    <meta property="og:locale" content="de_CH" />
+    <meta name="twitter:card" content="summary" />
+
+    {
+      isHome && (
+        <script
+          type="application/ld+json"
+          set:html={JSON.stringify(structuredData)}
+        />
+      )
+    }
   </head>
   <body data-page={currentPage}>
     <slot />

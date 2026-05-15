@@ -6,22 +6,26 @@ interface Props {
 const { currentPage } = Astro.props;
 
 const mainLinks = [
-  { href: "/vera-stucki/", label: "Vera Stucki", key: "vera-stucki" },
+  { href: "/vera-stucki.html", label: "Vera Stucki", key: "vera-stucki" },
   {
-    href: "/valeria-stadelmann/",
+    href: "/valeria-stadelmann.html",
     label: "Valeria Stadelmann",
     key: "valeria-stadelmann",
   },
-  { href: "/miriam-straub/", label: "Miriam Straub", key: "miriam-straub" },
+  {
+    href: "/miriam-straub.html",
+    label: "Miriam Straub",
+    key: "miriam-straub",
+  },
 ];
 
 const infoLinks = [
-  { href: "/standort/", label: "Standort", key: "standort" },
-  { href: "/kontakt/", label: "Kontakt", key: "kontakt" },
-  { href: "/angebot/", label: "Angebot", key: "angebot" },
-  { href: "/wichtig/", label: "Wichtig", key: "wichtig" },
-  { href: "/bilder/", label: "Bilder", key: "bilder" },
-  { href: "/links/", label: "Links", key: "links" },
+  { href: "/standort.html", label: "Standort", key: "standort" },
+  { href: "/kontakt.html", label: "Kontakt", key: "kontakt" },
+  { href: "/angebot.html", label: "Angebot", key: "angebot" },
+  { href: "/wichtig.html", label: "Wichtig", key: "wichtig" },
+  { href: "/bilder.html", label: "Bilder", key: "bilder" },
+  { href: "/links.html", label: "Links", key: "links" },
 ];
 
 const isInfoActive = infoLinks.some((l) => l.key === currentPage);
