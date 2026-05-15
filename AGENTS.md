@@ -8,9 +8,18 @@ Statische Website der Arztpraxis Stadelhofen, Goethestrasse 22, 8001 Zürich. In
 npm run dev       # Dev-Server auf localhost:4321
 npm run build     # Produktions-Build nach ./dist/
 npm run preview   # Build lokal anschauen
+npm run deploy    # Build + Upload nach Metanet (rsync via SSH)
 npm run lint      # Prettier + ESLint + Stylelint
 npm run format    # Auto-Fix
 ```
+
+## Deployment
+
+`scripts/deploy.sh` synchronisiert `dist/` mit `rsync --delete` nach
+Metanet (SSH-Key-Auth über `zeus.metanet.ch:2121`, SSH-Key unter
+`~/.ssh/metanet_ed25519`). `--delete` räumt alte Dateien auf dem
+Server auf, die nicht mehr im Build sind. Idempotent — wiederholtes
+Ausführen lädt nur Änderungen hoch.
 
 ## Architektur
 
