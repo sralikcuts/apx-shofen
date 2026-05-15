@@ -1,75 +1,44 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
-type Image = { full: string; thumb: string; title: string };
+import eingang1 from "../assets/practice/Praxis_Stadelhofen_01_28.jpg";
+import eingang2 from "../assets/practice/Praxis_Stadelhofen_02_03.jpg";
+import wartezimmer1 from "../assets/practice/Praxis_Stadelhofen_02_01.jpg";
+import wartezimmer2 from "../assets/practice/Praxis_Stadelhofen_01_02.jpg";
+import wartezimmer3 from "../assets/practice/Praxis_Stadelhofen_02_02.jpg";
+import eingang3 from "../assets/practice/Praxis_Stadelhofen_02_19.jpg";
+import sprechzimmer1 from "../assets/practice/Praxis_Stadelhofen_02_05.jpg";
+import sprechzimmer2 from "../assets/practice/Praxis_Stadelhofen_02_08.jpg";
+import sprechzimmer3 from "../assets/practice/Praxis_Stadelhofen_02_10.jpg";
+import sprechzimmer4 from "../assets/practice/Praxis_Stadelhofen_02_15.jpg";
+import labor from "../assets/practice/Praxis_Stadelhofen_02_18.jpg";
 
-/* Spalten exakt wie im Original-HTML — handverlesene Reihenfolge,
-   damit die Bildhöhen pro Reihe gut zusammenpassen. */
-const columns: Image[][] = [
+type Photo = { src: ImageMetadata; title: string };
+
+// Spalten exakt wie im Original-HTML — handverlesene Reihenfolge,
+// damit die Bildhöhen pro Reihe gut zusammenpassen.
+const columns: Photo[][] = [
   [
-    {
-      full: "/Praxis_Stadelhofen_01_28.jpg",
-      thumb: "/Praxis_Stadelhofen_01_28_tn4.jpg",
-      title: "Eingang",
-    },
-    {
-      full: "/Praxis_Stadelhofen_02_03.jpg",
-      thumb: "/Praxis_Stadelhofen_02_03_tn.jpg",
-      title: "Eingang",
-    },
+    { src: eingang1, title: "Eingang" },
+    { src: eingang2, title: "Eingang" },
   ],
   [
-    {
-      full: "/Praxis_Stadelhofen_02_01.jpg",
-      thumb: "/Praxis_Stadelhofen_02_01_tn.jpg",
-      title: "Wartezimmer",
-    },
-    {
-      full: "/Praxis_Stadelhofen_01_02.jpg",
-      thumb: "/Praxis_Stadelhofen_01_02_tn.jpg",
-      title: "Wartezimmer",
-    },
-    {
-      full: "/Praxis_Stadelhofen_02_02.jpg",
-      thumb: "/Praxis_Stadelhofen_02_02_tn.jpg",
-      title: "Wartezimmer",
-    },
+    { src: wartezimmer1, title: "Wartezimmer" },
+    { src: wartezimmer2, title: "Wartezimmer" },
+    { src: wartezimmer3, title: "Wartezimmer" },
   ],
   [
-    {
-      full: "/Praxis_Stadelhofen_02_19.jpg",
-      thumb: "/Praxis_Stadelhofen_02_19_tn.jpg",
-      title: "Eingang",
-    },
-    {
-      full: "/Praxis_Stadelhofen_02_05.jpg",
-      thumb: "/Praxis_Stadelhofen_02_05_tn.jpg",
-      title: "Sprechzimmer",
-    },
-    {
-      full: "/Praxis_Stadelhofen_02_08.jpg",
-      thumb: "/Praxis_Stadelhofen_02_08_tn.jpg",
-      title: "Sprechzimmer",
-    },
+    { src: eingang3, title: "Eingang" },
+    { src: sprechzimmer1, title: "Sprechzimmer" },
+    { src: sprechzimmer2, title: "Sprechzimmer" },
   ],
   [
-    {
-      full: "/Praxis_Stadelhofen_02_10.jpg",
-      thumb: "/Praxis_Stadelhofen_02_10_tn.jpg",
-      title: "Sprechzimmer",
-    },
-    {
-      full: "/Praxis_Stadelhofen_02_15.jpg",
-      thumb: "/Praxis_Stadelhofen_02_15_tn.jpg",
-      title: "Sprechzimmer",
-    },
-    {
-      full: "/Praxis_Stadelhofen_02_18.jpg",
-      thumb: "/Praxis_Stadelhofen_02_18_tn.jpg",
-      title: "Labor",
-    },
+    { src: sprechzimmer3, title: "Sprechzimmer" },
+    { src: sprechzimmer4, title: "Sprechzimmer" },
+    { src: labor, title: "Labor" },
   ],
 ];
 ---
@@ -92,9 +61,15 @@ const columns: Image[][] = [
       {
         columns.map((col) => (
           <div class="col">
-            {col.map((img) => (
-              <a href={img.full} target="_blank" rel="noopener">
-                <img src={img.thumb} alt={img.title} loading="lazy" />
+            {col.map((photo) => (
+              <a href={photo.src.src} target="_blank" rel="noopener">
+                <Image
+                  src={photo.src}
+                  alt={photo.title}
+                  widths={[250, 500]}
+                  sizes="(min-width: 768px) 280px, (min-width: 576px) 200px, 50vw"
+                  loading="lazy"
+                />
               </a>
             ))}
           </div>
@@ -102,6 +77,7 @@ const columns: Image[][] = [
       }
     </div>
   </main>
+
   <Footer />
 </Layout>
 

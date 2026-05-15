@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import portrait from "../assets/doctors/valeria-stadelmann.jpg";
 
 const cv = [
   ["2015 –", "Selbständige Ärztin Arztpraxis Stadelhofen"],
@@ -37,7 +39,12 @@ const cv = [
   <main class="container">
     <article class="page-grid">
       <div class="page-grid-icon">
-        <img src="/valeria-stadelmann.jpg" alt="Valeria Stadelmann" />
+        <Image
+          src={portrait}
+          alt="Valeria Stadelmann"
+          widths={[240, 480]}
+          sizes="(min-width: 992px) 240px, 180px"
+        />
       </div>
       <div class="page-grid-content">
         <header class="text-center">

@@ -1,7 +1,9 @@
 ---
+import { Image } from "astro:assets";
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
+import teamPhoto from "../assets/doctors/stadelmann-stucki-straub.jpg";
 ---
 
 <Layout
@@ -72,9 +74,11 @@ import Footer from "../components/Footer.astro";
         </section>
 
         <figure class="team-photo">
-          <img
-            src="/stadelmann-stucki-straub.jpg"
+          <Image
+            src={teamPhoto}
             alt="Arztpraxis Stadelhofen Valeria Stadelmann Vera Stucki Miriam Straub"
+            widths={[600, 900, 1200]}
+            sizes="(min-width: 992px) 800px, 100vw"
           />
         </figure>
       </div>
