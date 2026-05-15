@@ -1,0 +1,72 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+const cv = [
+  ["2015 –", "Selbständige Ärztin Arztpraxis Stadelhofen"],
+  ["2013 – 2015", "Ärztin in Hausarztpraxis in der Stadt Zürich"],
+  ["2012 – 2013", "Ärztin in Hausarztpraxis in Männedorf"],
+  ["2010 – 2011", "Ärztin in Gemeinschaftspraxis Sanacare Zürich"],
+  [
+    "2008 – 2010",
+    "Assistenzärztin Innere Medizin, Stadtspital Triemli Zürich, Prof. Dr. med. Ch. Meier",
+  ],
+  ["2009", "Bestandene Prüfung FMH Innere Medizin"],
+  ["2008 – 2009", "Mehrfache Vertretung reisemedizinische Praxis in Zürich"],
+  [
+    "2005 – 2007",
+    "Assistenzärztin Innere Medizin, Spital Männedorf, Dr. med. U. Strebel",
+  ],
+  [
+    "2004 – 2005",
+    "Assistenzärztin Innere Medizin, Kreuzspital Chur, Dr. med. C. Canova",
+  ],
+  ["2003", "Staatsexamen Universität Zürich"],
+  ["1995 – 2003", "Medizinstudium Universität Zürich"],
+];
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Valeria Stadelmann, Fachärztin Allgemeine Innere Medizin FMH"
+  description="Valeria Stadelmann"
+  currentPage="valeria-stadelmann"
+>
+  <Navigation currentPage="valeria-stadelmann" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/valeria-stadelmann.jpg" alt="Valeria Stadelmann" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Valeria Stadelmann</h1>
+          <h3>Fachärztin Allgemeine Innere Medizin FMH</h3>
+          <div class="spacer-md"></div>
+        </header>
+
+        <table class="info">
+          <tbody>
+            {
+              cv.map(([year, text]) => (
+                <tr>
+                  <td>{year}</td>
+                  <td>{text}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        <table class="info">
+          <tbody>
+            <tr>
+              <td>Sprachen</td>
+              <td>Deutsch, Englisch (Spanisch, Italienisch)</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+</Layout>

@@ -1,0 +1,153 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+type Image = { full: string; thumb: string; title: string };
+
+/* Spalten exakt wie im Original-HTML — handverlesene Reihenfolge,
+   damit die Bildhöhen pro Reihe gut zusammenpassen. */
+const columns: Image[][] = [
+  [
+    {
+      full: "/Praxis_Stadelhofen_01_28.jpg",
+      thumb: "/Praxis_Stadelhofen_01_28_tn4.jpg",
+      title: "Eingang",
+    },
+    {
+      full: "/Praxis_Stadelhofen_02_03.jpg",
+      thumb: "/Praxis_Stadelhofen_02_03_tn.jpg",
+      title: "Eingang",
+    },
+  ],
+  [
+    {
+      full: "/Praxis_Stadelhofen_02_01.jpg",
+      thumb: "/Praxis_Stadelhofen_02_01_tn.jpg",
+      title: "Wartezimmer",
+    },
+    {
+      full: "/Praxis_Stadelhofen_01_02.jpg",
+      thumb: "/Praxis_Stadelhofen_01_02_tn.jpg",
+      title: "Wartezimmer",
+    },
+    {
+      full: "/Praxis_Stadelhofen_02_02.jpg",
+      thumb: "/Praxis_Stadelhofen_02_02_tn.jpg",
+      title: "Wartezimmer",
+    },
+  ],
+  [
+    {
+      full: "/Praxis_Stadelhofen_02_19.jpg",
+      thumb: "/Praxis_Stadelhofen_02_19_tn.jpg",
+      title: "Eingang",
+    },
+    {
+      full: "/Praxis_Stadelhofen_02_05.jpg",
+      thumb: "/Praxis_Stadelhofen_02_05_tn.jpg",
+      title: "Sprechzimmer",
+    },
+    {
+      full: "/Praxis_Stadelhofen_02_08.jpg",
+      thumb: "/Praxis_Stadelhofen_02_08_tn.jpg",
+      title: "Sprechzimmer",
+    },
+  ],
+  [
+    {
+      full: "/Praxis_Stadelhofen_02_10.jpg",
+      thumb: "/Praxis_Stadelhofen_02_10_tn.jpg",
+      title: "Sprechzimmer",
+    },
+    {
+      full: "/Praxis_Stadelhofen_02_15.jpg",
+      thumb: "/Praxis_Stadelhofen_02_15_tn.jpg",
+      title: "Sprechzimmer",
+    },
+    {
+      full: "/Praxis_Stadelhofen_02_18.jpg",
+      thumb: "/Praxis_Stadelhofen_02_18_tn.jpg",
+      title: "Labor",
+    },
+  ],
+];
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Bilder"
+  description="Bilder Arztpraxis Stadelhofen Zürich"
+  currentPage="bilder"
+>
+  <Navigation currentPage="bilder" />
+
+  <main class="container">
+    <header class="text-center page-header">
+      <h1>Bilder</h1>
+      <p>Fotos: Anna Brunner</p>
+      <p>Innenausbau: Keller Branzanti Architekten AG</p>
+    </header>
+
+    <div class="gallery">
+      {
+        columns.map((col) => (
+          <div class="col">
+            {col.map((img) => (
+              <a href={img.full} target="_blank" rel="noopener">
+                <img src={img.thumb} alt={img.title} loading="lazy" />
+              </a>
+            ))}
+          </div>
+        ))
+      }
+    </div>
+  </main>
+</Layout>
+
+<style>
+  .page-header {
+    margin-bottom: var(--space-8);
+  }
+
+  .page-header p {
+    color: var(--color-text-muted);
+    font-size: var(--text-base);
+  }
+
+  /* Vier feste Spalten wie im Original; jede Spalte fliesst unabhängig.
+     Mit den handverlesenen Gruppen passen die Reihen optisch zusammen. */
+  .gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  @media (min-width: 768px) {
+    .gallery {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  .col {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-3);
+  }
+
+  .col a {
+    display: block;
+    border: 1px solid var(--color-border-strong);
+    padding: 4px;
+    background: var(--color-bg);
+    transition: border-color var(--duration-fast) var(--ease-out);
+  }
+
+  .col a:hover {
+    border-color: var(--color-link);
+  }
+
+  .col img {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+</style>

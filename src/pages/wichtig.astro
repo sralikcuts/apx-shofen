@@ -1,0 +1,70 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Wichtig"
+  description="Wichtig Arztpraxis Stadelhofen Zürich"
+  currentPage="wichtig"
+>
+  <Navigation currentPage="wichtig" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/faehnchen.png" alt="Arztpraxis Stadelhofen - Wichtig" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Wichtig</h1>
+        </header>
+
+        <section>
+          <h3>Unterlagen</h3>
+          <p>Bitte bringen Sie folgende Unterlagen mit:</p>
+          <ul>
+            <li>Krankenkassenausweis (bei der ersten Konsultation)</li>
+            <li>
+              Falls vorhanden frühere Berichte und Befunde (z.B. Röntgenbilder)
+            </li>
+            <li>Bei Unfall das Unfallformular (Bezug über den Arbeitgeber)</li>
+          </ul>
+        </section>
+
+        <section>
+          <h3>Adressänderung</h3>
+          <p>
+            Bitte informieren Sie uns über eine Änderung der Wohnadresse oder
+            Krankenkasse-/Unfallversicherung.
+          </p>
+        </section>
+
+        <section>
+          <h3>Chronischen Erkrankungen</h3>
+          <p>
+            Bei chronischen Erkrankungen (z.B. Diabetes, Bluthochdruck, Lungen-
+            und Herzerkrankungen) ist eine sorgfältige Reiseplanung und
+            Dokumentation der Medikamente/Befunde wichtig. Bitte informieren Sie
+            uns frühzeitig, damit wir Sie beraten können.
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  section + section {
+    margin-top: var(--space-6);
+  }
+
+  ul {
+    margin: var(--space-3) 0 var(--space-3) var(--space-6);
+    padding-left: var(--space-4);
+  }
+
+  li {
+    margin-bottom: var(--space-1);
+  }
+</style>

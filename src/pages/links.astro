@@ -1,0 +1,170 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+const linkGroups: {
+  topic: string;
+  links: { href: string; label: string }[];
+}[] = [
+  {
+    topic: "Reisemedizin",
+    links: [
+      {
+        href: "https://www.bag.admin.ch/themen/medizin",
+        label: "Bundesamt für Gesundheit BAG",
+      },
+      {
+        href: "https://www.safetravel.ch",
+        label: "Reisemedizinische Beratung",
+      },
+      {
+        href: "https://www.cdc.gov",
+        label: "Centers for Disease Control and Prevention",
+      },
+    ],
+  },
+  {
+    topic: "Rega",
+    links: [
+      {
+        href: "https://www.rega.ch",
+        label: "Schweizerische Rettungsflugwacht",
+      },
+    ],
+  },
+  {
+    topic: "Lungenkrankheiten",
+    links: [{ href: "https://www.lungenliga.ch", label: "Lungenliga Schweiz" }],
+  },
+  {
+    topic: "Kreislauferkrankungen",
+    links: [
+      {
+        href: "https://www.swissheart.ch",
+        label: "Schweizerische Herzstiftung",
+      },
+    ],
+  },
+  {
+    topic: "Diabetes",
+    links: [
+      {
+        href: "https://www.diabetesgesellschaft.ch",
+        label: "Schweizerische Diabetesgesellschaft",
+      },
+    ],
+  },
+  {
+    topic: "Krebs",
+    links: [{ href: "https://www.krebsliga.ch", label: "Krebsliga Schweiz" }],
+  },
+  {
+    topic: "Hautkrebs",
+    links: [
+      { href: "https://www.skincheck.ch/de/home", label: "My Skincheck" },
+    ],
+  },
+  {
+    topic: "Rheuma",
+    links: [{ href: "https://www.rheumaliga.ch", label: "Rheumaliga Schweiz" }],
+  },
+  {
+    topic: "Wohnen im Alter",
+    links: [
+      {
+        href: "https://www.stadt-zuerich.ch/wohnenimalter",
+        label: "Stadt Zürich – Beratungsstelle Wohnen im Alter",
+      },
+    ],
+  },
+  {
+    topic: "Notrufgerät",
+    links: [
+      {
+        href: "https://www.srk-zuerich.ch/srk/Ich-suche-Hilfe/fuer-Aeltere/Rotkreuz-Notruf/index.php",
+        label: "SRK Kanton Zürich",
+      },
+    ],
+  },
+  {
+    topic: "Patientenverfügung",
+    links: [
+      {
+        href: "https://www.fmh.ch/services/patientenverfuegung.html",
+        label: "Verbindung der Schweizer Ärztinnen und Ärzte (FMH)",
+      },
+      {
+        href: "https://www.samw.ch/de/Ethik/Patientenverfuegung",
+        label:
+          "Schweizerische Akademie der Medizinischen Wissenschaften (SAMW)",
+      },
+    ],
+  },
+  {
+    topic: "Gesundheitspolitik",
+    links: [
+      {
+        href: "https://www.menschenmedizin.com",
+        label: "Akademie Menschenmedizin",
+      },
+    ],
+  },
+  {
+    topic: "Medizinethik",
+    links: [
+      {
+        href: "https://www.samw.ch/de/Ethik.html",
+        label:
+          "Schweizerische Akademie der Medizinischen Wissenschaften (SAMW)",
+      },
+    ],
+  },
+];
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Links"
+  description="Links Arztpraxis Stadelhofen Zürich"
+  currentPage="links"
+>
+  <Navigation currentPage="links" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/computer.png" alt="Arztpraxis Stadelhofen - Links" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Links</h1>
+        </header>
+
+        <table class="info">
+          <tbody>
+            {
+              linkGroups.map((group) => (
+                <tr>
+                  <td>{group.topic}</td>
+                  <td>
+                    {group.links.map((link, idx) => (
+                      <>
+                        <a
+                          href={link.href}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          {link.label}
+                        </a>
+                        {idx < group.links.length - 1 && <br />}
+                      </>
+                    ))}
+                  </td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+</Layout>

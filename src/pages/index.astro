@@ -1,0 +1,139 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<Layout currentPage="home">
+  <Navigation currentPage="home" />
+
+  <main class="container">
+    <section class="hero">
+      <div class="hero-logo">
+        <img src="/baum.png" alt="Arztpraxis Stadelhofen Logo" width="320" />
+      </div>
+      <div class="hero-content text-center">
+        <h1>Arztpraxis Stadelhofen</h1>
+        <h3>Goethestrasse 22 &middot; 8001 Zürich</h3>
+        <h3>beim Bahnhof Stadelhofen</h3>
+        <div class="spacer-md"></div>
+        <h4>Telefon von 09:00 bis 12:00</h4>
+        <h4>
+          <a href="tel:+41442525545" class="phone-plain">044 252 55 45</a>
+        </h4>
+        <div class="spacer-md"></div>
+        <h4>Leider können wir keine neuen</h4>
+        <h4>Patienten aufnehmen und wir</h4>
+        <h4>führen keine Warteliste.</h4>
+      </div>
+    </section>
+
+    <section class="doctors-row">
+      <div class="doctors">
+        <section>
+          <p>
+            Dr. med. Vera Stucki-Häusler<br />
+            Fachärztin Allgemeine Innere Medizin FMH
+          </p>
+        </section>
+        <section>
+          <p>
+            Valeria Stadelmann<br />
+            Fachärztin Allgemeine Innere Medizin FMH
+          </p>
+        </section>
+        <section>
+          <p>
+            Dr. med. Miriam Straub<br />
+            Fachärztin Psychiatrie und Psychotherapie FMH
+          </p>
+        </section>
+      </div>
+      <div class="frontskizze">
+        <img
+          src="/goethestrasse22.png"
+          alt="Arztpraxis Stadelhofen Frontskizze"
+          width="530"
+        />
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  .phone-plain,
+  .phone-plain:hover,
+  .phone-plain:focus {
+    color: inherit;
+    text-decoration: none;
+  }
+
+  .hero {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: 1fr;
+    align-items: center;
+    margin-bottom: var(--space-12);
+  }
+
+  .hero-logo {
+    text-align: center;
+  }
+
+  .hero-logo img {
+    margin: 0 auto;
+    max-width: 180px;
+  }
+
+  @media (min-width: 768px) {
+    .hero-logo img {
+      max-width: 260px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .hero {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-12);
+    }
+
+    .hero-logo {
+      text-align: left;
+    }
+
+    .hero-logo img {
+      max-width: 320px;
+      margin: 0;
+    }
+  }
+
+  .doctors-row {
+    display: grid;
+    gap: var(--space-8);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .doctors-row .doctors {
+    text-align: center;
+  }
+
+  .frontskizze {
+    text-align: center;
+  }
+
+  .frontskizze img {
+    margin: 0 auto;
+    max-width: 100%;
+  }
+
+  @media (min-width: 992px) {
+    .doctors-row {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-12);
+    }
+
+    .doctors-row .doctors {
+      text-align: left;
+    }
+  }
+</style>

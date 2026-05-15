@@ -1,0 +1,368 @@
+---
+interface Props {
+  title?: string;
+  description?: string;
+  currentPage?: string;
+}
+
+const {
+  title = "Arztpraxis Stadelhofen | Arzt - Hausarzt - Hausarztpraxis - Innere Medizin und Allgemeinmedizin in Zürich Kreis 1 beim Bahnhof Stadelhofen",
+  description = "Arztpraxis Stadelhofen Zürich",
+  currentPage,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+---
+
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonicalURL} />
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+    <link rel="icon" type="image/png" sizes="96x96" href="/favicon-96x96.png" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="/apple-icon-180x180.png"
+    />
+    <link rel="manifest" href="/manifest.json" />
+    <meta name="theme-color" content="#ffffff" />
+
+    <link
+      rel="preload"
+      href="/fonts/jost-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonicalURL} />
+  </head>
+  <body data-page={currentPage}>
+    <slot />
+  </body>
+</html>
+
+<style is:global>
+  @font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/jost-latin-ext.woff2") format("woff2");
+    unicode-range:
+      U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304,
+      U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020,
+      U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face {
+    font-family: "Jost";
+    font-style: normal;
+    font-weight: 100 900;
+    font-display: swap;
+    src: url("/fonts/jost-latin.woff2") format("woff2");
+    unicode-range:
+      U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
+      U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193,
+      U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+
+  :root {
+    /* — Typografie — */
+    --font-body: "Jost", "Futura", "Trebuchet MS", Arial, sans-serif;
+    --font-display: "Jost", "Futura", "Trebuchet MS", Arial, sans-serif;
+
+    --text-xs: 0.75rem;
+    --text-sm: 0.875rem;
+    --text-base: 1rem;
+    --text-lg: 1.125rem;
+    --text-xl: 1.5rem; /* h3 — entspricht BS3-Default 24px */
+    --text-2xl: 1.625rem;
+    --text-3xl: 1.875rem;
+    --text-4xl: 2.25rem;
+
+    /* Letter-Spacing absolut in Pixel. Gegenüber apx-1.css (4px/1px)
+       leicht reduziert, weil Jost etwas breitere Letterforms hat als
+       das Adobe-Original Futura PT. */
+    --tracking-wide: 2.5px;
+    --tracking-narrow: 0.5px;
+
+    /* — Farben — */
+    --color-text: #333;
+    --color-text-muted: #777;
+    --color-text-active: #555;
+    --color-link: #428bca; /* Bootstrap-3-Default für visuelle Kontinuität */
+    --color-link-hover: #2a6496;
+    --color-bg: #fff;
+    --color-bg-alt: #f8f8f8;
+    --color-bg-active: #e7e7e7;
+    --color-border: #e7e7e7;
+    --color-border-strong: #ddd;
+
+    /* — Spacing — */
+    --space-1: 0.25rem;
+    --space-2: 0.5rem;
+    --space-3: 0.75rem;
+    --space-4: 1rem;
+    --space-6: 1.5rem;
+    --space-8: 2rem;
+    --space-12: 3rem;
+    --space-16: 4rem;
+
+    /* — Layout — */
+    --max-width: 1170px;
+    --content-padding: var(--space-4);
+    --nav-height: 50px;
+
+    /* — Motion — */
+    --ease-out: cubic-bezier(0.25, 1, 0.5, 1);
+    --duration-fast: 150ms;
+  }
+
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    margin: 0;
+  }
+
+  html {
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+    font-kerning: normal;
+  }
+
+  body {
+    font-family: var(--font-body);
+    font-weight: 300;
+    /* 14px — BS3-Body-Default. Tabellenzellen und Headings erben die
+       Letter-Spacing-Werte direkt. */
+    font-size: 0.875rem;
+    line-height: 1.42857;
+    color: var(--color-text);
+    background: var(--color-bg);
+    letter-spacing: var(--tracking-wide);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: var(--font-display);
+    font-weight: 300;
+    line-height: 1.1;
+    /* Erbt --tracking-wide (4px) vom Body — kein Override. */
+    margin-bottom: 0.625rem;
+  }
+
+  /* BS3-Defaults: h1–h3 mit 20px oben, h4–h6 mit 10px oben.
+     Sorgt für klare Gliederung zwischen Titel und Untertitel,
+     hält Folgen von h4-Zeilen aber kompakt. */
+  h1,
+  h2,
+  h3 {
+    margin-top: 1.25rem;
+  }
+
+  h4,
+  h5,
+  h6 {
+    margin-top: 0.625rem;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+    padding-top: 0.5em;
+    text-transform: uppercase;
+  }
+
+  h2 {
+    font-size: var(--text-3xl);
+  }
+
+  h3 {
+    font-size: var(--text-xl);
+  }
+
+  h4 {
+    font-size: var(--text-lg);
+  }
+
+  /* p und li exakt wie in apx-1.css: 120% von 14px = 16.8px, 1px ls. */
+  p,
+  li {
+    font-size: 1.05rem;
+    letter-spacing: var(--tracking-narrow);
+  }
+
+  p + p,
+  p + h3,
+  p + h4 {
+    margin-top: var(--space-4);
+  }
+
+  img,
+  svg {
+    display: block;
+    max-width: 100%;
+    height: auto;
+  }
+
+  a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color var(--duration-fast) var(--ease-out);
+  }
+
+  a:hover,
+  a:focus {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-link);
+    outline-offset: 2px;
+  }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 var(--content-padding);
+  }
+
+  @media (min-width: 768px) {
+    .container {
+      padding: 0 var(--space-6);
+    }
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  /* — Bisherige .doctors-Klasse vom Original — */
+  .doctors {
+    padding-top: var(--space-16);
+  }
+
+  .doctors section + section {
+    margin-top: var(--space-4);
+  }
+
+  /* — Tabellen wie im Original (CV, Öffnungszeiten, Links).
+     td erbt body-Schriftgrösse (14px) und letter-spacing (4px). */
+  table.info {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: var(--space-6);
+  }
+
+  table.info td {
+    padding: 8px;
+    border-top: 1px solid var(--color-border);
+    vertical-align: top;
+  }
+
+  table.info tr:first-child td {
+    border-top: 0;
+  }
+
+  table.info td:first-child {
+    width: 22%;
+    white-space: nowrap;
+    padding-right: var(--space-4);
+  }
+
+  @media (max-width: 600px) {
+    table.info td:first-child {
+      width: 35%;
+    }
+  }
+
+  /* — Standard-Pageheader-Layout: Icon links, Inhalt rechts — */
+  .page-grid {
+    display: grid;
+    gap: var(--space-6);
+    grid-template-columns: 1fr;
+    align-items: start;
+  }
+
+  .page-grid-icon {
+    text-align: center;
+  }
+
+  .page-grid-icon img {
+    margin: 0 auto;
+    max-width: 120px;
+  }
+
+  @media (min-width: 768px) {
+    .page-grid-icon img {
+      max-width: 180px;
+    }
+  }
+
+  @media (min-width: 992px) {
+    .page-grid {
+      grid-template-columns: 1fr 2fr;
+      gap: var(--space-12);
+    }
+
+    .page-grid-icon {
+      text-align: left;
+    }
+
+    /* Foto/Icon-Oberkante mit der H1-Textoberkante ausrichten:
+       H1 hat margin-top 20px + padding-top 18px = 38px Offset. */
+    .page-grid-icon img {
+      max-width: 240px;
+      margin: 38px 0 0;
+    }
+  }
+
+  /* — Utility-Klassen — */
+  .text-center {
+    text-align: center;
+  }
+
+  .text-left {
+    text-align: left;
+  }
+
+  .img-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .spacer-sm {
+    height: var(--space-4);
+  }
+  .spacer-md {
+    height: var(--space-8);
+  }
+  .spacer-lg {
+    height: var(--space-12);
+  }
+</style>

@@ -1,0 +1,79 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+const domain = "hin.ch";
+const patientEmail = `stadel-apx@${domain}`;
+const drStraubEmail = `miriam.straub@${domain}`;
+const drStadelmannEmail = `v.stadelmann@${domain}`;
+const drStuckiEmail = `vera.stucki@${domain}`;
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Kontakt"
+  description="Kontakt Arztpraxis Stadelhofen Zürich"
+  currentPage="kontakt"
+>
+  <Navigation currentPage="kontakt" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/briefkasten.png" alt="Arztpraxis Stadelhofen - Kontakt" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Kontakt</h1>
+        </header>
+
+        <section>
+          <h4>Anschrift</h4>
+          <p>
+            Arztpraxis Stadelhofen<br />
+            Goethestrasse 22<br />
+            8001 Zürich
+          </p>
+        </section>
+
+        <section>
+          <h4>Telefon</h4>
+          <p>
+            <a href="tel:+41442525545">044 252 55 45</a> (9 bis 12 Uhr)
+          </p>
+          <p>
+            Falls die Praxis nicht erreichbar ist, wenden Sie sich im Notfall an
+            das <a href="https://www.aerztefon.ch/">AERZTEFON</a>
+            <a href="tel:0800336655">0800 33 66 55</a>
+          </p>
+        </section>
+
+        <section>
+          <h4>E-Mail für Patienten</h4>
+          <p>
+            <a href={`mailto:${patientEmail}`}>{patientEmail}</a>
+          </p>
+          <p>
+            Leider können wir keine neuen Patienten aufnehmen und wir führen
+            keine Warteliste.
+          </p>
+        </section>
+
+        <section>
+          <h4>E-Mail für medizinische Fachpersonen und Institutionen</h4>
+          <p>
+            <a href={`mailto:${drStraubEmail}`}>{drStraubEmail}</a><br />
+            <a href={`mailto:${drStadelmannEmail}`}>{drStadelmannEmail}</a><br
+            />
+            <a href={`mailto:${drStuckiEmail}`}>{drStuckiEmail}</a>
+          </p>
+        </section>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  section + section {
+    margin-top: var(--space-6);
+  }
+</style>

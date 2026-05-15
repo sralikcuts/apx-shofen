@@ -1,0 +1,86 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+const cv = [
+  [
+    "2016 –",
+    "Selbständige Ärztin Arztpraxis Stadelhofen, Konsiliarärztin Psychosomatik Klinik Barmelweid",
+  ],
+  ["2011 – 2015", "Oberärztin Psychosomatik, Klinik Barmelweid"],
+  ["2013", "Facharzttitel für FMH Psychiatrie und Psychotherapie"],
+  ["2010 – 2011", "Spitalärztin, Klinik SGM Langenthal, Dr. med. R. Hefti"],
+  ["2010", "Promotion Medizinische Fakultät Zürich"],
+  [
+    "2009 – 2010",
+    "Assistenzärztin Gerontopsychiatrie, ipw Klinik Schlosstal, Dr. med. J. Minder",
+  ],
+  [
+    "2005 – 2009",
+    "Weiterbildung in systemischer Therapie und Beratung, Ausbildungsinstitut Meilen",
+  ],
+  [
+    "2007 – 2009",
+    "Assistenzärztin Psychosomatik, Klinik Barmelweid, Dr. med. E. Hindermann",
+  ],
+  [
+    "2007",
+    "Oberarztstellvertretung, Ambulatorium Ost der psych. Universitätsklinik Zürich, Dr. med. R. Bridler",
+  ],
+  [
+    "2005 – 2006",
+    "Assistenzärztin, Ambulatorium Ost der psych. Universitätsklinik Zürich, Dr. med. R. Bridler",
+  ],
+  [
+    "2003 – 2004",
+    "Assistenzärztin, Psychiatrische Universitätsklinik Zürich, Prof. Dr. med. D. Hell",
+  ],
+  ["2002", "Staatsexamen Universität Zürich"],
+  ["1996 – 2002", "Medizinstudium Universität Zürich"],
+];
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Dr. med. Miriam Straub"
+  description="Dr. med. Miriam Straub"
+  currentPage="miriam-straub"
+>
+  <Navigation currentPage="miriam-straub" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/miriam-straub.jpg" alt="Dr. med. Miriam Straub" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Dr. med. Miriam Straub</h1>
+          <h3>Fachärztin Psychiatrie und Psychotherapie FMH</h3>
+          <div class="spacer-md"></div>
+        </header>
+
+        <table class="info">
+          <tbody>
+            {
+              cv.map(([year, text]) => (
+                <tr>
+                  <td>{year}</td>
+                  <td>{text}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        <table class="info">
+          <tbody>
+            <tr>
+              <td>Sprachen</td>
+              <td>Deutsch, Englisch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+</Layout>

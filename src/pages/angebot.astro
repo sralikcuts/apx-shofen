@@ -1,0 +1,97 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Angebot"
+  description="Angebot Arztpraxis Stadelhofen Zürich"
+  currentPage="angebot"
+>
+  <Navigation currentPage="angebot" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/medizin.png" alt="Arztpraxis Stadelhofen - Angebot" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Angebot</h1>
+        </header>
+
+        <section>
+          <h3>Persönliche und individuelle Patientenbetreuung</h3>
+          <p>
+            In Zürich aufgewachsen, haben wir auch unser Medizinstudium zur
+            gleichen Zeit an der Universität Zürich absolviert. Zur
+            Gemeinschaftspraxis haben wir zusammengefunden, weil wir nach all
+            diesen Jahren immer noch freundschaftlich verbunden sind und den
+            Arztberuf mit der gleichen Leidenschaft und Begeisterung ausüben.
+            Wir verfügen über eine langjährige Erfahrung im stationären und
+            ambulanten Bereich der Inneren Medizin, Notfallmedizin und der
+            hausärztlichen Betreuung. Für uns steht neben der präzisen
+            Diagnosestellung, der zeitgemässen Therapie und sinnvollen
+            Prävention der Patient als Mensch im Zentrum. Es ist uns ein
+            wichtiges Anliegen, eine ganz persönliche und individuelle Beziehung
+            zu unseren Patienten zu pflegen.
+          </p>
+        </section>
+
+        <section>
+          <h3>Hausarztmedizin mit Schwerpunkt Innere Medizin</h3>
+          <p>
+            Als Fachärztinnen der Allgemeinen Inneren Medizin FMH, bieten wir
+            eine ganzheitliche und fundierte Grundversorgung im Sinne der
+            klassischen „Hausarztmedizin" an. Aufgrund der langjährigen
+            Spital-Tätigkeit im ambulanten und stationären Bereich der Inneren
+            Medizin, können wir Sie auch für komplexe Fragestellungen der
+            Bereiche Herzkreislauf, Lunge, Diabetes, Schilddrüse, Magendarm und
+            Niere kompetent beraten. Selbstverständlich decken wir auch die
+            Gebiete Reisemedizin und Gesundheitsprävention ab und sind gerne Ihr
+            Ansprechpartner für alle Fragen rund um Ihre Gesundheit und akuten
+            Beschwerden. Die moderne Schulmedizin leistet sehr viel, entwickelt
+            sich stetig weiter und stellt für uns das verlässliche Fundament für
+            eine umfassende und sichere Patientenbetreuung dar.
+            Selbstverständlich sind wir der Komplementärmedizin gegenüber offen
+            und sehen darin eine sinnvolle Ergänzung.
+          </p>
+        </section>
+
+        <section>
+          <h3>Beziehungsnetz zu Spezialisten und Kliniken</h3>
+          <p>
+            Wir verfügen über ein sorgfältig ausgewähltes Beziehungsnetz zu
+            weiteren Spezialärzten und Kliniken, so dass wir Sie für jede
+            Fragestellung kompetent beraten, behandeln oder zeitnah weiterweisen
+            können. Als Mitglied des Ärztenetzwerkes zmed (Zürcher
+            Ärztegemeinschaft) können wir selbstverständlich auch Patienten im
+            „Hausarzt-Modell" betreuen.
+          </p>
+        </section>
+
+        <figure class="team-photo">
+          <img
+            src="/stadelmann-stucki-straub.jpg"
+            alt="Arztpraxis Stadelhofen Valeria Stadelmann Vera Stucki Miriam Straub"
+          />
+        </figure>
+      </div>
+    </article>
+  </main>
+</Layout>
+
+<style>
+  section + section {
+    margin-top: var(--space-6);
+  }
+
+  .team-photo {
+    margin-top: var(--space-12);
+  }
+
+  .team-photo img {
+    width: 100%;
+    height: auto;
+  }
+</style>

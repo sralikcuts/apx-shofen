@@ -1,0 +1,75 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Standort"
+  description="Standort Arztpraxis Stadelhofen Zürich"
+  currentPage="standort"
+>
+  <Navigation currentPage="standort" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/kompass.png" alt="Arztpraxis Stadelhofen - Standort" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Standort</h1>
+        </header>
+
+        <section>
+          <h3>Aerztehaus Goethestrasse&nbsp;22</h3>
+          <p>
+            Durch den ersten Eingang der Apotheke Stadelhofen (Dr. Andres)
+            gelangt man zum Treppenhaus und Lift des Aerztehauses. Der
+            Praxiseingang ist beschriftet und befindet sich im vierten Stock.
+          </p>
+        </section>
+
+        <section>
+          <h3>Öffentliche Verkehrsmittel</h3>
+          <p>
+            Die Praxis ist in unmittelbarer Nähe zum Bahnhof Stadelhofen und den
+            Tramhaltestellen Stadelhofen und Opernhaus gelegen.
+          </p>
+          <p>Opernhaus: Linie 2, Linie 4, Bus 912/916</p>
+          <p>Stadelhofen: Linie 11, Linie 15, S18</p>
+        </section>
+
+        <section>
+          <h3>Parkmöglichkeiten</h3>
+          <p>
+            In der Umgebung stehen nur eine beschränkte Anzahl Parkplätze (Blaue
+            Zone) zur Verfügung. Nur wenige Schritte entfernt befindet sich das
+            Parkhaus Opera.
+          </p>
+        </section>
+
+        <h3 class="lageplan-label">Lageplan</h3>
+      </div>
+    </article>
+
+    <section class="lageplan-section">
+      <img src="/lageplan.png" alt="Arztpraxis Stadelhofen - Lageplan" />
+    </section>
+  </main>
+</Layout>
+
+<style>
+  section + section {
+    margin-top: var(--space-6);
+  }
+
+  /* Lageplan-Label gehört zur rechten Content-Spalte (eingerückt),
+     der eigentliche Lageplan steht darunter in voller Container-Breite. */
+  .lageplan-label {
+    margin-top: var(--space-8);
+  }
+
+  .lageplan-section {
+    margin-top: var(--space-4);
+  }
+</style>

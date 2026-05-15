@@ -1,0 +1,88 @@
+---
+import Layout from "../layouts/Layout.astro";
+import Navigation from "../components/Navigation.astro";
+
+const cv = [
+  ["2015 –", "Selbständige Ärztin Arztpraxis Stadelhofen"],
+  [
+    "2013 – 2015",
+    "Leitende Ärztin interdisziplinäre Notfallstation, Spital Männedorf",
+  ],
+  ["2013 –", "Dozentenauftrag der Medizinischen Fakultät für Medizinethik"],
+  ["2012 – 2015", "Mitglied der Ethikkommission des Spitals Männedorf"],
+  [
+    "2011 – 2013",
+    "Masterstudium in Applied Ethics (MAE) Philosophische Fakultät der Universität Zürich",
+  ],
+  [
+    "2011 – 2013",
+    "Oberärztin Innere Medizin, Spital Männedorf, Prof. Dr. med. G. Schulthess",
+  ],
+  ["2012", "Facharzttitel für FMH Allgemeine Innere Medizin"],
+  [
+    "2010 – 2011",
+    "Assistenzärztin Innere Medizin, UniversitätsSpital Zürich, Prof. Dr. med. E. Battegay",
+  ],
+  ["2009 – 2010", "Ärztin Medizinische Koordination, Einsatzzentrale Rega"],
+  [
+    "2007 – 2008",
+    "Flugärztin Rega, Dr. med. C. Höfliger, Dr. med. R. Albrecht",
+  ],
+  [
+    "2005 – 2006",
+    "Assistenzärztin Innere Medizin, Spital Männedorf, Dr. med. U. Strebel",
+  ],
+  [
+    "2003 – 2004",
+    "Assistenzärztin Anästhesie und Intensivmedizin, Spital Limmattal, Dr. med. U. Karmann, Dr. med. Th. Hegi",
+  ],
+  ["1998 – 2003", "Doktorarbeit und Promotion Medizinische Fakultät Zürich"],
+  ["1996 – 2002", "Medizinstudium und Staatsexamen Universität Zürich"],
+];
+---
+
+<Layout
+  title="Arztpraxis Stadelhofen | Dr. med. Vera Stucki, Fachärztin für Innere Medizin"
+  description="Dr. med. Vera Stucki"
+  currentPage="vera-stucki"
+>
+  <Navigation currentPage="vera-stucki" />
+
+  <main class="container">
+    <article class="page-grid">
+      <div class="page-grid-icon">
+        <img src="/vera-stucki.jpeg" alt="Dr. med. Vera Stucki-Häusler" />
+      </div>
+      <div class="page-grid-content">
+        <header class="text-center">
+          <h1>Dr. med. Vera Stucki-Häusler</h1>
+          <h3>Fachärztin Allgemeine Innere Medizin FMH</h3>
+          <h3>Master in Applied Ethics (MAE)<br />Universität Zürich</h3>
+          <div class="spacer-md"></div>
+        </header>
+
+        <table class="info">
+          <tbody>
+            {
+              cv.map(([year, text]) => (
+                <tr>
+                  <td>{year}</td>
+                  <td>{text}</td>
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        <table class="info">
+          <tbody>
+            <tr>
+              <td>Sprachen</td>
+              <td>Deutsch, Französisch, Englisch</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </article>
+  </main>
+</Layout>
