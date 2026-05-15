@@ -4,7 +4,8 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
-// Full-Res-Versionen sind die Click-Targets (öffnen in neuem Tab).
+// Full-Res-Versionen sind die Click-Targets — PhotoSwipe zeigt sie als
+// Vollbild-Overlay an.
 import eingang1Full from "../assets/practice/Praxis_Stadelhofen_01_28.jpg";
 import eingang2Full from "../assets/practice/Praxis_Stadelhofen_02_03.jpg";
 import wartezimmer1Full from "../assets/practice/Praxis_Stadelhofen_02_01.jpg";
@@ -88,12 +89,18 @@ const columns: Photo[][] = [
       <p>Innenausbau: Keller Branzanti Architekten AG</p>
     </header>
 
-    <div class="gallery">
+    <div class="gallery" id="gallery">
       {
         columns.map((col) => (
           <div class="col">
             {col.map((photo) => (
-              <a href={photo.full.src} target="_blank" rel="noopener">
+              <a
+                href={photo.full.src}
+                data-pswp-width={photo.full.width}
+                data-pswp-height={photo.full.height}
+                target="_blank"
+                rel="noopener"
+              >
                 <Image
                   src={photo.thumb}
                   alt={photo.title}
@@ -111,6 +118,19 @@ const columns: Photo[][] = [
 
   <Footer />
 </Layout>
+
+<script>
+  import PhotoSwipeLightbox from "photoswipe/lightbox";
+  import "photoswipe/style.css";
+
+  const lightbox = new PhotoSwipeLightbox({
+    gallery: "#gallery",
+    children: "a",
+    pswpModule: () => import("photoswipe"),
+    bgOpacity: 0.95,
+  });
+  lightbox.init();
+</script>
 
 <style>
   .page-header {
@@ -165,6 +185,7 @@ const columns: Photo[][] = [
     padding: 4px;
     background: var(--color-bg);
     transition: border-color var(--duration-fast) var(--ease-out);
+    cursor: zoom-in;
   }
 
   .col a:hover {
