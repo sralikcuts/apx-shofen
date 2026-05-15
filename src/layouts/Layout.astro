@@ -342,6 +342,11 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
     }
   }
 
+  /* Telefonnummern dürfen nie innerhalb der Nummer umbrechen. */
+  .phone {
+    white-space: nowrap;
+  }
+
   /* — Utility-Klassen — */
   .text-center {
     text-align: center;

@@ -2,11 +2,14 @@
 import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 
-const domain = "hin.ch";
-const patientEmail = `stadel-apx@${domain}`;
-const drStraubEmail = `miriam.straub@${domain}`;
-const drStadelmannEmail = `v.stadelmann@${domain}`;
-const drStuckiEmail = `vera.stucki@${domain}`;
+const emails = [
+  { user: "stadel-ap", domain: "hin.ch" },
+  { user: "miriam.straub", domain: "hin.ch" },
+  { user: "v.stadelmann", domain: "hin.ch" },
+  { user: "vera.stucki", domain: "hin.ch" },
+] as const;
+
+const [patient, drStraub, drStadelmann, drStucki] = emails;
 ---
 
 <Layout
@@ -38,19 +41,25 @@ const drStuckiEmail = `vera.stucki@${domain}`;
         <section>
           <h4>Telefon</h4>
           <p>
-            <a href="tel:+41442525545">044 252 55 45</a> (9 bis 12 Uhr)
+            <a class="phone" href="tel:+41442525545">044 252 55 45</a> (9 bis 12 Uhr)
           </p>
           <p>
             Falls die Praxis nicht erreichbar ist, wenden Sie sich im Notfall an
             das <a href="https://www.aerztefon.ch/">AERZTEFON</a>
-            <a href="tel:0800336655">0800 33 66 55</a>
+            <a class="phone" href="tel:0800336655">0800 33 66 55</a>
           </p>
         </section>
 
         <section>
           <h4>E-Mail für Patienten</h4>
           <p>
-            <a href={`mailto:${patientEmail}`}>{patientEmail}</a>
+            <a
+              class="email"
+              data-user={patient.user}
+              data-domain={patient.domain}
+            >
+              {patient.user}<span class="email-at"> [at] </span>{patient.domain}
+            </a>
           </p>
           <p>
             Leider können wir keine neuen Patienten aufnehmen und wir führen
@@ -61,10 +70,33 @@ const drStuckiEmail = `vera.stucki@${domain}`;
         <section>
           <h4>E-Mail für medizinische Fachpersonen und Institutionen</h4>
           <p>
-            <a href={`mailto:${drStraubEmail}`}>{drStraubEmail}</a><br />
-            <a href={`mailto:${drStadelmannEmail}`}>{drStadelmannEmail}</a><br
-            />
-            <a href={`mailto:${drStuckiEmail}`}>{drStuckiEmail}</a>
+            <a
+              class="email"
+              data-user={drStraub.user}
+              data-domain={drStraub.domain}
+            >
+              {drStraub.user}<span class="email-at"> [at] </span>{
+                drStraub.domain
+              }
+            </a><br />
+            <a
+              class="email"
+              data-user={drStadelmann.user}
+              data-domain={drStadelmann.domain}
+            >
+              {drStadelmann.user}<span class="email-at"> [at] </span>{
+                drStadelmann.domain
+              }
+            </a><br />
+            <a
+              class="email"
+              data-user={drStucki.user}
+              data-domain={drStucki.domain}
+            >
+              {drStucki.user}<span class="email-at"> [at] </span>{
+                drStucki.domain
+              }
+            </a>
           </p>
         </section>
       </div>
@@ -76,4 +108,24 @@ const drStuckiEmail = `vera.stucki@${domain}`;
   section + section {
     margin-top: var(--space-6);
   }
+
+  /* E-Mail-Adressen werden im statischen HTML in user/domain getrennt
+     gespeichert (data-user, data-domain) und unten vom Script zur
+     vollen Adresse zusammengebaut. Bis der Script läuft, sehen die
+     Besucher „user [at] domain.ch" — Spambots, die kein JS ausführen,
+     bekommen die Adresse gar nicht. */
+  .email {
+    word-break: keep-all;
+  }
 </style>
+
+<script>
+  for (const el of document.querySelectorAll<HTMLAnchorElement>("a.email")) {
+    const user = el.dataset.user;
+    const domain = el.dataset.domain;
+    if (!user || !domain) continue;
+    const address = `${user}@${domain}`;
+    el.href = `mailto:${address}`;
+    el.textContent = address;
+  }
+</script>
