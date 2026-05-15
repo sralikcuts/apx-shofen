@@ -4,41 +4,72 @@ import Layout from "../layouts/Layout.astro";
 import Navigation from "../components/Navigation.astro";
 import Footer from "../components/Footer.astro";
 
-import eingang1 from "../assets/practice/Praxis_Stadelhofen_01_28.jpg";
-import eingang2 from "../assets/practice/Praxis_Stadelhofen_02_03.jpg";
-import wartezimmer1 from "../assets/practice/Praxis_Stadelhofen_02_01.jpg";
-import wartezimmer2 from "../assets/practice/Praxis_Stadelhofen_01_02.jpg";
-import wartezimmer3 from "../assets/practice/Praxis_Stadelhofen_02_02.jpg";
-import eingang3 from "../assets/practice/Praxis_Stadelhofen_02_19.jpg";
-import sprechzimmer1 from "../assets/practice/Praxis_Stadelhofen_02_05.jpg";
-import sprechzimmer2 from "../assets/practice/Praxis_Stadelhofen_02_08.jpg";
-import sprechzimmer3 from "../assets/practice/Praxis_Stadelhofen_02_10.jpg";
-import sprechzimmer4 from "../assets/practice/Praxis_Stadelhofen_02_15.jpg";
-import labor from "../assets/practice/Praxis_Stadelhofen_02_18.jpg";
+// Full-Res-Versionen sind die Click-Targets (öffnen in neuem Tab).
+import eingang1Full from "../assets/practice/Praxis_Stadelhofen_01_28.jpg";
+import eingang2Full from "../assets/practice/Praxis_Stadelhofen_02_03.jpg";
+import wartezimmer1Full from "../assets/practice/Praxis_Stadelhofen_02_01.jpg";
+import wartezimmer2Full from "../assets/practice/Praxis_Stadelhofen_01_02.jpg";
+import wartezimmer3Full from "../assets/practice/Praxis_Stadelhofen_02_02.jpg";
+import eingang3Full from "../assets/practice/Praxis_Stadelhofen_02_19.jpg";
+import sprechzimmer1Full from "../assets/practice/Praxis_Stadelhofen_02_05.jpg";
+import sprechzimmer2Full from "../assets/practice/Praxis_Stadelhofen_02_08.jpg";
+import sprechzimmer3Full from "../assets/practice/Praxis_Stadelhofen_02_10.jpg";
+import sprechzimmer4Full from "../assets/practice/Praxis_Stadelhofen_02_15.jpg";
+import laborFull from "../assets/practice/Praxis_Stadelhofen_02_18.jpg";
 
-type Photo = { src: ImageMetadata; title: string };
+// Thumbnails dienen als Grid-Vorlage: sie haben die handgemachte
+// Seitenverhältnisse, mit denen die Spalten visuell genau aufgehen
+// (Portrait `_tn4` ist 300×411 statt 2:3, damit Col 1 dieselbe Höhe
+// erreicht wie die anderen Spalten mit je drei 3:2-Bildern).
+import eingang1Thumb from "../assets/practice/Praxis_Stadelhofen_01_28_tn4.jpg";
+import eingang2Thumb from "../assets/practice/Praxis_Stadelhofen_02_03_tn.jpg";
+import wartezimmer1Thumb from "../assets/practice/Praxis_Stadelhofen_02_01_tn.jpg";
+import wartezimmer2Thumb from "../assets/practice/Praxis_Stadelhofen_01_02_tn.jpg";
+import wartezimmer3Thumb from "../assets/practice/Praxis_Stadelhofen_02_02_tn.jpg";
+import eingang3Thumb from "../assets/practice/Praxis_Stadelhofen_02_19_tn.jpg";
+import sprechzimmer1Thumb from "../assets/practice/Praxis_Stadelhofen_02_05_tn.jpg";
+import sprechzimmer2Thumb from "../assets/practice/Praxis_Stadelhofen_02_08_tn.jpg";
+import sprechzimmer3Thumb from "../assets/practice/Praxis_Stadelhofen_02_10_tn.jpg";
+import sprechzimmer4Thumb from "../assets/practice/Praxis_Stadelhofen_02_15_tn.jpg";
+import laborThumb from "../assets/practice/Praxis_Stadelhofen_02_18_tn.jpg";
 
-// Spalten exakt wie im Original-HTML — handverlesene Reihenfolge,
-// damit die Bildhöhen pro Reihe gut zusammenpassen.
+type Photo = { thumb: ImageMetadata; full: ImageMetadata; title: string };
+
 const columns: Photo[][] = [
   [
-    { src: eingang1, title: "Eingang" },
-    { src: eingang2, title: "Eingang" },
+    { thumb: eingang1Thumb, full: eingang1Full, title: "Eingang" },
+    { thumb: eingang2Thumb, full: eingang2Full, title: "Eingang" },
   ],
   [
-    { src: wartezimmer1, title: "Wartezimmer" },
-    { src: wartezimmer2, title: "Wartezimmer" },
-    { src: wartezimmer3, title: "Wartezimmer" },
+    { thumb: wartezimmer1Thumb, full: wartezimmer1Full, title: "Wartezimmer" },
+    { thumb: wartezimmer2Thumb, full: wartezimmer2Full, title: "Wartezimmer" },
+    { thumb: wartezimmer3Thumb, full: wartezimmer3Full, title: "Wartezimmer" },
   ],
   [
-    { src: eingang3, title: "Eingang" },
-    { src: sprechzimmer1, title: "Sprechzimmer" },
-    { src: sprechzimmer2, title: "Sprechzimmer" },
+    { thumb: eingang3Thumb, full: eingang3Full, title: "Eingang" },
+    {
+      thumb: sprechzimmer1Thumb,
+      full: sprechzimmer1Full,
+      title: "Sprechzimmer",
+    },
+    {
+      thumb: sprechzimmer2Thumb,
+      full: sprechzimmer2Full,
+      title: "Sprechzimmer",
+    },
   ],
   [
-    { src: sprechzimmer3, title: "Sprechzimmer" },
-    { src: sprechzimmer4, title: "Sprechzimmer" },
-    { src: labor, title: "Labor" },
+    {
+      thumb: sprechzimmer3Thumb,
+      full: sprechzimmer3Full,
+      title: "Sprechzimmer",
+    },
+    {
+      thumb: sprechzimmer4Thumb,
+      full: sprechzimmer4Full,
+      title: "Sprechzimmer",
+    },
+    { thumb: laborThumb, full: laborFull, title: "Labor" },
   ],
 ];
 ---
@@ -62,11 +93,11 @@ const columns: Photo[][] = [
         columns.map((col) => (
           <div class="col">
             {col.map((photo) => (
-              <a href={photo.src.src} target="_blank" rel="noopener">
+              <a href={photo.full.src} target="_blank" rel="noopener">
                 <Image
-                  src={photo.src}
+                  src={photo.thumb}
                   alt={photo.title}
-                  widths={[250, 500]}
+                  widths={[300, 600]}
                   sizes="(min-width: 768px) 280px, (min-width: 576px) 200px, 50vw"
                   loading="lazy"
                 />
@@ -92,11 +123,13 @@ const columns: Photo[][] = [
   }
 
   /* Vier feste Spalten wie im Original; jede Spalte fliesst unabhängig.
-     Mit den handverlesenen Gruppen passen die Reihen optisch zusammen. */
+     Die Thumbnails sind so dimensioniert, dass die Spalten visuell
+     auf gleicher Höhe enden. */
   .gallery {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: var(--space-3);
+    align-items: start;
   }
 
   @media (min-width: 768px) {
@@ -105,10 +138,25 @@ const columns: Photo[][] = [
     }
   }
 
+  /* Vertikaler Gap zwischen Bildern: sichtbarer Atemraum.
+     Die Mathematik geht so auf:
+       Col 0 = Portrait (gestreckt auf w×1.413) + 1× Visual-Gap + Landscape
+       Col 1-3 = 3× Landscape + 2× Visual-Gap
+     Beide ≈ 566px bei col_w=262 und Visual-Gap=22px. */
   .col {
     display: flex;
     flex-direction: column;
     gap: var(--space-3);
+  }
+
+  /* Portrait-Thumbnail ist 300×411 (Aspect 1.37). Damit Col 1 auf
+     gleiche Höhe wie Col 2-4 (3× Landscape + 2× Gap) kommt, wird das
+     Portrait auf Aspect 300:424 (1.413) gestreckt. Sichtbarer Crop:
+     ~4px links/rechts der Bildinhalte. */
+  .col:first-child > a:first-child img {
+    aspect-ratio: 300 / 424;
+    object-fit: cover;
+    object-position: center;
   }
 
   .col a {
