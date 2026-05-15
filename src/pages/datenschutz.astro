@@ -26,8 +26,17 @@ import Footer from "../components/Footer.astro";
             Wir nehmen den Schutz Ihrer persönlichen Daten ernst. Diese
             Datenschutzerklärung erläutert, welche Daten beim Besuch unserer
             Website verarbeitet werden. Sie beruht auf dem Schweizer
-            Datenschutzgesetz (revDSG) sowie, wo anwendbar, der
-            EU-Datenschutz-Grundverordnung (DSGVO).
+            Datenschutzgesetz (revDSG).
+          </p>
+        </section>
+
+        <section>
+          <h3>Geltungsbereich</h3>
+          <p>
+            Diese Erklärung gilt für den Besuch dieser Website. Im
+            Behandlungsverhältnis gilt zusätzlich das ärztliche Berufsgeheimnis
+            (Art. 321 StGB) und die gesetzlichen Vorschriften zur
+            Patientendokumentation.
           </p>
         </section>
 
@@ -43,57 +52,62 @@ import Footer from "../components/Footer.astro";
         <section>
           <h3>Erhebung und Verarbeitung von Daten</h3>
           <p>
-            Beim Besuch dieser Website werden vom Server automatisch
-            Informationen in sogenannten Server-Logfiles erfasst und temporär
-            gespeichert:
-          </p>
-          <ul>
-            <li>IP-Adresse</li>
-            <li>Datum und Uhrzeit des Zugriffs</li>
-            <li>Aufgerufene Seite</li>
-            <li>Browsertyp und -version</li>
-            <li>Betriebssystem</li>
-          </ul>
-          <p>
-            Diese Daten dienen ausschliesslich dem Betrieb und der Sicherheit
-            der Website. Eine Auswertung zu Marketing- oder Tracking-Zwecken
-            findet nicht statt.
+            Beim Besuch der Website werden vom Server automatisch IP-Adresse,
+            Datum und Uhrzeit, aufgerufene Seite, Browser und Betriebssystem in
+            Server-Logfiles erfasst. Diese Daten dienen ausschliesslich dem
+            Betrieb und der Sicherheit der Website.
           </p>
         </section>
 
         <section>
           <h3>Cookies und Tracking</h3>
           <p>
-            Diese Website verwendet keine Cookies, kein Tracking und keine
-            Analyse-Tools wie Google Analytics.
+            Wir verwenden keine Cookies, kein Tracking und keine Analyse-Tools.
           </p>
         </section>
 
         <section>
-          <h3>Kommunikation per E-Mail</h3>
+          <h3>Webhosting</h3>
           <p>
-            Wenn Sie uns per E-Mail kontaktieren, verarbeiten wir Ihre Angaben
-            zur Bearbeitung Ihrer Anfrage. Für die Kommunikation medizinischer
-            Inhalte mit Fachpersonen verwenden wir HIN (Health Info Net) als
-            gesicherten Kommunikationskanal.
+            Die Website wird in der Schweiz gehostet (Metanet AG, Zürich). Alle
+            Daten unterliegen Schweizer Recht.
           </p>
+        </section>
+
+        <section>
+          <h3>Kommunikation per E-Mail und SMS</h3>
           <p>
-            Die auf der Kontaktseite angezeigten E-Mail-Adressen sind im
-            HTML-Quellcode aufgeteilt, um automatisierte Erfassung durch
-            Spam-Bots zu erschweren. Die Adresse wird erst beim Laden der Seite
-            im Browser zusammengesetzt.
+            E-Mails und SMS werden in der Regel unverschlüsselt übermittelt.
+            Senden Sie uns deshalb bitte keine vertraulichen medizinischen
+            Anliegen per E-Mail oder SMS.
+          </p>
+        </section>
+
+        <section>
+          <h3>Externe Links</h3>
+          <p>
+            Auf Inhalte und Datenschutzpraxis verlinkter externer Websites haben
+            wir keinen Einfluss; eine Haftung wird ausgeschlossen.
           </p>
         </section>
 
         <section>
           <h3>Ihre Rechte</h3>
           <p>
-            Sie haben das Recht auf Auskunft über die Sie betreffenden
-            gespeicherten Daten, auf Berichtigung unrichtiger Daten, auf
-            Löschung und auf Einschränkung der Verarbeitung. Bei Fragen oder
-            Anliegen wenden Sie sich bitte direkt an uns.
+            Sie haben die im Datenschutzgesetz vorgesehenen Rechte; bei
+            Fragen wenden Sie sich bitte direkt an uns.
           </p>
         </section>
+
+        <section>
+          <h3>Änderungen</h3>
+          <p>
+            Diese Datenschutzerklärung kann jederzeit angepasst werden. Es
+            gilt die jeweils aktuelle, auf dieser Website publizierte Fassung.
+          </p>
+        </section>
+
+        <p class="legal-date">Stand: Mai 2026</p>
       </div>
     </article>
   </main>
@@ -106,12 +120,9 @@ import Footer from "../components/Footer.astro";
     margin-top: var(--space-6);
   }
 
-  ul {
-    margin: var(--space-2) 0 var(--space-2) var(--space-6);
-    padding-left: var(--space-4);
-  }
-
-  li {
-    margin-bottom: var(--space-1);
+  .legal-date {
+    margin-top: var(--space-12);
+    color: var(--color-text-muted);
+    font-size: var(--text-sm);
   }
 </style>
