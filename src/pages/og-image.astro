@@ -1,0 +1,80 @@
+---
+// Render-Page für das Open-Graph-Image. Wird im Dev-Server bei 1200×630
+// gerendert und per Screenshot in public/og-image.png exportiert.
+// Im Build vom Sitemap ausgeschlossen (astro.config.mjs).
+---
+
+<!doctype html>
+<html lang="de-CH">
+  <head>
+    <meta charset="UTF-8" />
+    <title>OG Image</title>
+    <link
+      rel="preload"
+      href="/fonts/jost-latin.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <style>
+      @font-face {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 100 900;
+        font-display: block;
+        src: url("/fonts/jost-latin.woff2") format("woff2");
+      }
+      html,
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Jost", "Futura", sans-serif;
+      }
+      .og {
+        width: 1200px;
+        height: 630px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 60px;
+        background: #fff;
+        padding: 80px;
+        box-sizing: border-box;
+      }
+      .tree {
+        width: 360px;
+        height: auto;
+        flex-shrink: 0;
+      }
+      .text {
+        font-weight: 300;
+        color: #333;
+      }
+      .title {
+        font-size: 76px;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        line-height: 1.05;
+        margin: 0 0 30px;
+      }
+      .subtitle {
+        font-size: 28px;
+        letter-spacing: 4px;
+        line-height: 1.5;
+        margin: 0;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="og">
+      <img src="/baum.png" alt="" class="tree" />
+      <div class="text">
+        <h1 class="title">Arztpraxis<br />Stadelhofen</h1>
+        <p class="subtitle">
+          Goethestrasse 22<br />
+          8001 Zürich
+        </p>
+      </div>
+    </div>
+  </body>
+</html>
