@@ -1,0 +1,160 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-17T00:00:00.000Z",
+  "title": "Design System: Arztpraxis Stadelhofen",
+  "extensions": {
+    "colorMeta": {
+      "ink": {
+        "role": "neutral",
+        "displayName": "Tinte",
+        "canonical": "#333333",
+        "tonalRamp": ["oklch(0.18 0 0)", "oklch(0.27 0 0)", "oklch(0.36 0 0)", "oklch(0.45 0 0)", "oklch(0.56 0 0)", "oklch(0.68 0 0)", "oklch(0.82 0 0)", "oklch(0.95 0 0)"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Tinte Gedämpft",
+        "canonical": "#777777",
+        "tonalRamp": ["oklch(0.20 0 0)", "oklch(0.30 0 0)", "oklch(0.40 0 0)", "oklch(0.50 0 0)", "oklch(0.60 0 0)", "oklch(0.72 0 0)", "oklch(0.84 0 0)", "oklch(0.96 0 0)"]
+      },
+      "himmelblau": {
+        "role": "primary",
+        "displayName": "Ruhiges Himmelblau",
+        "canonical": "#428bca",
+        "tonalRamp": ["oklch(0.30 0.07 250)", "oklch(0.40 0.09 250)", "oklch(0.48 0.10 250)", "oklch(0.56 0.11 250)", "oklch(0.64 0.11 250)", "oklch(0.74 0.09 250)", "oklch(0.85 0.06 250)", "oklch(0.94 0.03 250)"]
+      },
+      "himmelblau-deep": {
+        "role": "primary",
+        "displayName": "Himmelblau Tief",
+        "canonical": "#2a6496",
+        "tonalRamp": ["oklch(0.25 0.07 252)", "oklch(0.33 0.09 252)", "oklch(0.41 0.10 252)", "oklch(0.48 0.11 252)", "oklch(0.57 0.10 252)", "oklch(0.68 0.08 252)", "oklch(0.80 0.05 252)", "oklch(0.92 0.02 252)"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Weiss",
+        "canonical": "#ffffff",
+        "tonalRamp": ["oklch(0.90 0 0)", "oklch(0.92 0 0)", "oklch(0.94 0 0)", "oklch(0.955 0 0)", "oklch(0.97 0 0)", "oklch(0.98 0 0)", "oklch(0.99 0 0)", "oklch(1.0 0 0)"]
+      },
+      "surface-alt": {
+        "role": "neutral",
+        "displayName": "Weiss Gedämpft",
+        "canonical": "#f8f8f8",
+        "tonalRamp": ["oklch(0.88 0 0)", "oklch(0.90 0 0)", "oklch(0.92 0 0)", "oklch(0.94 0 0)", "oklch(0.955 0 0)", "oklch(0.97 0 0)", "oklch(0.98 0 0)", "oklch(0.985 0 0)"]
+      },
+      "surface-active": {
+        "role": "neutral",
+        "displayName": "Grau Aktiv / Rahmen",
+        "canonical": "#e7e7e7",
+        "tonalRamp": ["oklch(0.80 0 0)", "oklch(0.84 0 0)", "oklch(0.87 0 0)", "oklch(0.895 0 0)", "oklch(0.915 0 0)", "oklch(0.935 0 0)", "oklch(0.955 0 0)", "oklch(0.975 0 0)"]
+      },
+      "border-strong": {
+        "role": "neutral",
+        "displayName": "Rahmen Stark",
+        "canonical": "#dddddd",
+        "tonalRamp": ["oklch(0.78 0 0)", "oklch(0.82 0 0)", "oklch(0.85 0 0)", "oklch(0.87 0 0)", "oklch(0.895 0 0)", "oklch(0.92 0 0)", "oklch(0.945 0 0)", "oklch(0.97 0 0)"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display / H1", "purpose": "Seitentitel, Versalsatz mit weitem Tracking — das Markenzeichen der Seite." },
+      "headline": { "displayName": "Headline / H2", "purpose": "Abschnittstitel." },
+      "title": { "displayName": "Title / H3", "purpose": "Untertitel, Adresszeilen, kurze Schlüsselinfos." },
+      "body": { "displayName": "Body", "purpose": "Fliesstext in p und li; Zeilenlänge 65–75ch." },
+      "label": { "displayName": "Label", "purpose": "Tabellenzellen, Footer, Copyright, dezente Metatexte." }
+    },
+    "shadows": [
+      { "name": "dropdown-lift", "value": "0 6px 12px rgba(0, 0, 0, 0.08)", "purpose": "Der einzige Schatten im System — ausschliesslich für das geöffnete Desktop-Navigations-Dropdown." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.25, 1, 0.5, 1)", "purpose": "Standard-Easing für Zustandswechsel (Links, Hover)." },
+      { "name": "duration-fast", "value": "150ms", "purpose": "Dauer für Farb- und Zustandsübergänge." }
+    ],
+    "breakpoints": [
+      { "name": "phone", "value": "600px" },
+      { "name": "tablet", "value": "768px" },
+      { "name": "desktop", "value": "992px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Navigation Link",
+      "kind": "nav",
+      "refersTo": "nav-link",
+      "description": "Hauptnavigations-Link; gedämpft im Ruhezustand, Flächenton bei Hover/Aktiv statt Unterstreichung.",
+      "html": "<nav class=\"ds-nav\"><a class=\"ds-nav-link\" href=\"#\">Vera Stucki</a><a class=\"ds-nav-link ds-nav-link--active\" href=\"#\">Valeria Stadelmann</a><a class=\"ds-nav-link\" href=\"#\">Miriam Straub</a></nav>",
+      "css": ".ds-nav { display: flex; gap: 0.25rem; background: var(--color-bg-alt, #f8f8f8); border-bottom: 1px solid var(--color-border, #e7e7e7); padding: 0 1rem; } .ds-nav-link { font-family: Jost, Futura, sans-serif; font-weight: 300; font-size: 1.05rem; letter-spacing: 0.5px; color: var(--color-text-muted, #777); text-decoration: none; padding: 15px 0.75rem; transition: color 150ms cubic-bezier(0.25,1,0.5,1), background 150ms cubic-bezier(0.25,1,0.5,1); } .ds-nav-link:hover { color: var(--color-text, #333); background: var(--color-bg-active, #e7e7e7); } .ds-nav-link--active { color: var(--color-text-active, #555); background: var(--color-bg-active, #e7e7e7); }"
+    },
+    {
+      "name": "Text Link",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Standard-Inline-Link in der einen Akzentfarbe; Unterstreichung erscheint erst bei Hover/Fokus.",
+      "html": "<p class=\"ds-prose\">Mehr unter <a class=\"ds-link\" href=\"#\">Standort und Anfahrt</a>.</p>",
+      "css": ".ds-prose { font-family: Jost, Futura, sans-serif; font-weight: 300; font-size: 1.05rem; letter-spacing: 0.5px; line-height: 1.42857; color: var(--color-text, #333); } .ds-link { color: var(--color-link, #428bca); text-decoration: none; transition: color 150ms cubic-bezier(0.25,1,0.5,1); } .ds-link:hover, .ds-link:focus-visible { color: var(--color-link-hover, #2a6496); text-decoration: underline; } .ds-link:focus-visible { outline: 2px solid var(--color-link, #428bca); outline-offset: 2px; }"
+    },
+    {
+      "name": "Phone Link (plain)",
+      "kind": "custom",
+      "refersTo": "link",
+      "description": "Telefonnummer im Heading — erbt die Textfarbe statt Blau und bricht nie um.",
+      "html": "<h4 class=\"ds-phone-heading\"><a class=\"ds-phone\" href=\"tel:+41442525545\">044 252 55 45</a></h4>",
+      "css": ".ds-phone-heading { font-family: Jost, Futura, sans-serif; font-weight: 300; font-size: 1.125rem; line-height: 1.1; letter-spacing: 2.5px; } .ds-phone, .ds-phone:hover, .ds-phone:focus { color: var(--color-text, #333); text-decoration: none; white-space: nowrap; }"
+    },
+    {
+      "name": "Dropdown Menu",
+      "kind": "nav",
+      "refersTo": "dropdown-menu",
+      "description": "Natives details/summary-Dropdown mit CSS-Caret und der einzigen erlaubten Anhebung.",
+      "html": "<details class=\"ds-dropdown\" open><summary class=\"ds-dropdown-summary\"><span>Informationen</span><span class=\"ds-caret\"></span></summary><ul class=\"ds-dropdown-menu\"><li><a href=\"#\">Standort</a></li><li><a href=\"#\">Kontakt</a></li><li><a href=\"#\">Angebot</a></li></ul></details>",
+      "css": ".ds-dropdown { position: relative; display: inline-block; font-family: Jost, Futura, sans-serif; } .ds-dropdown-summary { display: flex; align-items: center; gap: 0.5rem; padding: 15px 0.75rem; cursor: pointer; list-style: none; color: var(--color-text-active, #555); background: var(--color-bg-active, #e7e7e7); font-size: 1.05rem; font-weight: 300; letter-spacing: 0.5px; } .ds-dropdown-summary::-webkit-details-marker { display: none; } .ds-caret { width: 0; height: 0; border-left: 4px solid transparent; border-right: 4px solid transparent; border-top: 4px solid currentColor; } .ds-dropdown-menu { position: absolute; top: 100%; right: 0; min-width: 180px; list-style: none; padding: 0; margin: 0; background: var(--color-bg, #fff); border: 1px solid var(--color-border, #e7e7e7); box-shadow: 0 6px 12px rgba(0,0,0,0.08); } .ds-dropdown-menu a { display: block; padding: 0.5rem 1rem; font-size: 0.95rem; color: var(--color-text-muted, #777); text-decoration: none; } .ds-dropdown-menu a:hover { color: var(--color-text, #333); background: var(--color-bg-active, #e7e7e7); }"
+    },
+    {
+      "name": "Info Table",
+      "kind": "custom",
+      "refersTo": "label",
+      "description": "Haarlinien-Tabelle für CV, Öffnungszeiten und Link-Verzeichnisse — keine vertikalen Linien, keine Zebra-Streifen.",
+      "html": "<table class=\"ds-info\"><tr><td>Montag</td><td>09:00 – 12:00 Uhr</td></tr><tr><td>Dienstag</td><td>09:00 – 12:00 Uhr</td></tr><tr><td>Mittwoch</td><td>geschlossen</td></tr></table>",
+      "css": ".ds-info { width: 100%; border-collapse: collapse; font-family: Jost, Futura, sans-serif; font-weight: 300; font-size: 0.875rem; letter-spacing: 2.5px; color: var(--color-text, #333); } .ds-info td { padding: 8px; border-top: 1px solid var(--color-border, #e7e7e7); vertical-align: top; } .ds-info tr:first-child td { border-top: 0; } .ds-info td:first-child { width: 22%; white-space: nowrap; padding-right: 1rem; }"
+    },
+    {
+      "name": "Mobile Nav Toggle",
+      "kind": "button",
+      "refersTo": "nav-link",
+      "description": "Hamburger-Button für Mobil; einer der wenigen Orte mit funktionalem 4px-Radius.",
+      "html": "<button class=\"ds-nav-toggle\" aria-label=\"Menü öffnen\"><span></span><span></span><span></span></button>",
+      "css": ".ds-nav-toggle { display: inline-flex; flex-direction: column; justify-content: space-between; width: 42px; height: 34px; padding: 7px 9px; background: transparent; border: 1px solid var(--color-border-strong, #ddd); border-radius: 4px; cursor: pointer; } .ds-nav-toggle span { display: block; width: 100%; height: 2px; background: #888; border-radius: 1px; } .ds-nav-toggle:focus-visible { outline: 2px solid var(--color-link, #428bca); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "Die ruhige Sprechstunde",
+    "overview": "Das System ist das Webgegenstück zum ruhigen, geordneten Sprechzimmer einer kleinen Hausarztpraxis: aufgeräumt, vertrauenswürdig, ohne Geräusch. Weissraum ist Atemraum, kein Mangel an Gestaltung. Die gedämpfte Graupalette und die geometrische Jost/Futura-Schrift tragen Stabilität und Sorgfalt; nichts konkurriert mit der einen Sache, die eine Besucherin sucht. Farbe ist fast vollständig auf eine warm-neutrale Grauskala reduziert; ein einziger, leiser Himmelblau-Akzent (#428bca) übernimmt die gesamte Interaktion und sonst nichts. Tiefe entsteht durch Weissraum, Haarlinien und minimale Tonwertverschiebungen — nicht durch Schatten. Das System lehnt ausdrücklich den unpersönlichen Konzern-Klinik-Look ebenso ab wie die trendige Startup-/SaaS-Ästhetik.",
+    "keyCharacteristics": [
+      "Warm-neutrale Graupalette, ein einziger Blau-Akzent für Interaktion.",
+      "Jost (geometrische Sans) durchgehend, Gewicht 300, grosszügiges Tracking.",
+      "Flach: Tiefe durch Weissraum, Haarlinien und Tonwert, nicht durch Schatten.",
+      "Information vor Effekt; jede Fläche dient der Auffindbarkeit.",
+      "Kantig statt rund — Radien nahezu abwesend (nur funktional, 4px)."
+    ],
+    "rules": [
+      { "name": "The One-Blue Rule", "body": "Es gibt genau eine Akzentfarbe (#428bca), und sie gehört der Interaktion. Sie erscheint nie als Flächenfüllung, nie als dekorativer Tupfer, nie auf mehr als den Links eines Bildschirms. Ihre Seltenheit ist der Punkt.", "section": "colors" },
+      { "name": "The Muted-Gray Trap", "body": "Gedämpftes Grau (#777) ist für Sekundäres reserviert. Fliesstext bleibt auf #333 — gedämpftes Grau für lange Textblöcke auf Weiss unterläuft die Lesbarkeit und ist verboten.", "section": "colors" },
+      { "name": "The Light-Weight Rule", "body": "Gewicht 300 ist die Norm für Headings und Body. Fettungen werden vermieden; Hierarchie kommt aus Grad und Weissraum.", "section": "typography" },
+      { "name": "The Wide-Tracking Rule", "body": "Headings und der 14px-Basistext tragen weites Tracking (2.5px); nur der grössere Fliesstext löst auf das engere 0.5px herunter.", "section": "typography" },
+      { "name": "The Flat-By-Default Rule", "body": "Flächen sind im Ruhezustand flach. Der einzige zulässige Schatten ist die Dropdown-Anhebung, und er erscheint nur als Reaktion auf das Öffnen des Menüs.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do halte Fliesstext auf #333 und begrenze die Zeilenlänge auf 65–75ch.",
+      "Do verwende #428bca als einzige Akzentfarbe, ausschliesslich für Links und Interaktion.",
+      "Do schaffe Tiefe durch Weissraum, Haarlinien (#e7e7e7) und Tonwert — flach by default.",
+      "Do bleibe bei Jost in Gewicht 300; staffle Hierarchie über Grad und Tracking.",
+      "Do behalte sichtbaren :focus-visible-Outline und grosszügige Tap-Targets.",
+      "Do respektiere prefers-reduced-motion und halte Bewegung auf Zustandswechsel beschränkt."
+    ],
+    "donts": [
+      "Don't lass die Seite wie eine Konzern-Klinik / Spital-Kette aussehen: keine glänzenden CTA-Banner, keine Stock-Fotos lächelnder Ärzte, keine verkaufsorientierten Hero-Flächen.",
+      "Don't rutsche in trendige Startup-/SaaS-Optik: keine Verläufe, kein Gradient-Text, keine Animations-Choreografie.",
+      "Don't setze gedämpftes Grau (#777) für längeren Fliesstext ein.",
+      "Don't füge neue Schatten auf Karten, Bildern oder Containern hinzu.",
+      "Don't führe eine zweite Schriftfamilie ein; Kontrast kommt aus Grad und Tracking.",
+      "Don't verwende farbige Seitenstreifen (border-left/right > 1px) oder runde Ecken über das funktionale 4px hinaus."
+    ]
+  }
+}
