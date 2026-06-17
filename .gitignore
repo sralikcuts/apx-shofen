@@ -8,3 +8,6 @@ dist/
 
 # Logs
 npm-debug.log*
+
+# impeccable live-mode session journals (transient, lokaler Recovery-State)
+.impeccable/live/sessions/
